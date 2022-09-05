@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios'
+import {Link }  from 'react-router-dom';
+import axios from 'axios';
 
 
 const CardHome = () => {
@@ -41,7 +42,7 @@ const CardHome = () => {
            <div className="card-body text-center">
               <h5 className="card-title">{Capitalize(prueba.name)}</h5>
               <p className="card-text">{Capitalize(prueba.species)}</p>
-             { /* <Link to="" className="btn btn-dark" >View details</Link>  */}
+              <Link to={`/detalle?id=${prueba.id}`} className="btn btn-dark" >View details</Link>
           </div>
         </div>     
       </div>
