@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link }  from 'react-router-dom';
+import './CardHome.css'
 import axios from 'axios';
 
 
@@ -36,8 +37,8 @@ const CardHome = () => {
     <div className="row my-2 mx-2">
   {starW.map((prueba) => (
         <div className="col-3" key={prueba.id}>
-        <div className="card my-2" style={{ borderRadius:"20px"}}>
-             <img src={prueba.image} style={{height:"300px", borderRadius:"20px"}} className="card-img-top" alt="..."/> 
+        <div className="card my-2">
+             <img src={prueba.image}  className="card-img-top" alt="..."/> 
            
            <div className="card-body text-center">
               <h5 className="card-title">{Capitalize(prueba.name)}</h5>
