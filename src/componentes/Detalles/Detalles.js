@@ -2,6 +2,7 @@ import React from 'react'
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Detalles.css'
 
 const Detalles = () => {
 
@@ -36,12 +37,12 @@ const Detalles = () => {
 
   return (
     <>
-    <div className="row text-black" style={{margin:"0px"}}>
+    <div className="row text-white detalle-container my-3" style={{margin:"0px"}}>
     { starW &&
         <>
         <h2>{Capitalize(starW.name)} </h2>
         <div className="col-4">
-            <img src={starW.image} className="img-fluid" alt="poster"/>
+            <img src={starW.image} style={{borderRadius:"20px"}}  className="img-fluid" alt="poster"/>
         </div>
         <div className="col-4">    
             {starW.bornLocation ? <h5>Nacimiento: {Capitalize(starW.bornLocation)} </h5> : <h5></h5> }             
@@ -77,7 +78,7 @@ const Detalles = () => {
         }
 
         {starW.masters  ? 
-            <div style={{ display:"flex", justifyContent:"center"}}>
+            <div>
             <div>
                 <h5>Maestros: </h5>
                 <h6 > {starW.masters},  </h6>
