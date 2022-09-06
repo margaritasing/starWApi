@@ -2,11 +2,16 @@ import React from 'react'
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useStateValue } from "../../reducer/StateProvider";
 import './Detalles.css'
 
 const Detalles = () => {
 
+    const [{ characterFilter } ]=useStateValue();
+
     const [starW, setStarW] = useState(null)
+
+    console.log(characterFilter)
     
 
     let query = new URLSearchParams(window.location.search);
@@ -36,7 +41,7 @@ const Detalles = () => {
 
 
   return (
-    <>
+    <>  
     <div className="row text-white detalle-container my-3" style={{margin:"0px"}}>
     { starW &&
         <>
