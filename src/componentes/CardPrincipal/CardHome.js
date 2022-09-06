@@ -2,11 +2,18 @@ import React, {useEffect, useState} from 'react';
 import {Link }  from 'react-router-dom';
 import './CardHome.css'
 import axios from 'axios';
+import { actionType } from '../../reducer/reducer';
+import { useStateValue } from "../../reducer/StateProvider";
 
 
-const CardHome = () => {
 
-    const [starW, setStarW] = useState([]);
+const CardHome = (props) => {
+
+  const [{ character } ]=useStateValue();
+
+  
+
+   /*  const [starW, setStarW] = useState([]);
 
     const resData = () =>{
         const endPoint = 'https://akabab.github.io/starwars-api/api/all.json'
@@ -18,7 +25,7 @@ const CardHome = () => {
 
     useEffect(() => {
      resData()
-    }, [])
+    }, []) */
 
 
     
@@ -35,11 +42,14 @@ const CardHome = () => {
 
   return (
     <div className="row my-2 mx-2">
-  {starW.map((prueba) => (
+  {character.map((prueba) => (
         <div className="col-3" key={prueba.id}>
         <div className="card my-2">
              <img src={prueba.image}  className="card-img-top" alt="..."/> 
-           
+             <button className="favorito"
+             onClick={props.addOrRemoveFromFavs} 
+             data-movie-id={prueba.id}>🖤
+             </button>           
            <div className="card-body text-center">
               <h5 className="card-title">{Capitalize(prueba.name)}</h5>
               <p className="card-text">{Capitalize(prueba.species)}</p>
