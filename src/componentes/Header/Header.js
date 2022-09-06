@@ -2,7 +2,7 @@ import React from 'react'
 import {Link } from 'react-router-dom'
 
 
-const Header = () => {
+const Header = (props) => {
   
 
   return (
@@ -20,9 +20,11 @@ const Header = () => {
                 <Link to="/listado" className="nav-link" >Listado</Link>                    
                 <Link to="/favoritos" className="nav-link" >Favoritos</Link>                 
                 <span className='d-flex text-white align-items-center'>       
-             
+                {
+                  props.favoritos.length > 0 && <>Favoritas: {props.favoritos.length}
+                  </>}
                 
-  </span>                      
+              </span>                      
             </div>
         </div>
   
